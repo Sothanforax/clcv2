@@ -7,8 +7,7 @@
  * (at your option) any later version.
  */
 #include <iostream>
-#include <unistd.h>
-#include <getopt.h>
+#include <argp.h>
 #include <ncurses.h>
 #include <string>
 #include <cmath>

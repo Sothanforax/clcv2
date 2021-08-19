@@ -28,23 +28,21 @@ if(argc > 1){
 	if(arg == "--interactive-simple" || "-s"){intsimple();}
 
 	if(arg == "--help" || "-h"){
-		std::cout << "\nUsage:\n";
-		std::cout << "	progname [options] 		Start an interactive prompt\n";
-		std::cout << "	progname [options] [expr]	Enter an expression to solve\n";
+		std::cout << "Usage:\n";
+		std::cout << "progname [options] 		Start an interactive prompt\n";
+		std::cout << "progname [options] [expr]	Enter an expression to solve\n";
 		std::cout << "\n	Proof of concept calculator with multiple input methods\n";
 		std::cout << "\nOptions:\n";
-		std::cout << "	-i, --interactive		Start a ncurses based interactive tui\n";
-		std::cout << "	-s, --interactive-simple	Start a simple interactive prompt\n";
-		std::cout << "	-h, --help			Display this help\n";
-		std::cout << "	-v, --version			Display version\n" << std::endl;}
+		std::cout << "-i, --interactive		Start a ncurses based interactive tui\n";
+		std::cout << "-s, --interactive-simple	Start a simple interactive prompt\n";
+		std::cout << "-h, --help			Display this help\n";
+		std::cout << "-v, --version			Display version\n" << std::endl;}
 
-	if(arg == "--version" || "-v"){std::cout << "\nprogname version 0.1" << std::endl;}
+	//std::cout << "\nprogname version 0.1" << std::endl;
 
-	if(arg == "--yaranaika" || "-y"){std::cout << "\nやらないか" << std::endl;}
+	//std::cout << "\nやらないか" << std::endl;
 
-	else{
-		std::cout << "Invalid argument!\n progname -h or --help for more." <<std::endl;
-	}
+	else{std::cout << "Invalid argument!\n progname -h or --help for more." <<std::endl;}
 }
 else{
 	std::cout << "No argument(s) specified" << std::endl;

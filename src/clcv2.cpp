@@ -8,6 +8,7 @@
  */
 #include <iostream>
 #include <unistd.h>
+#include <getopt.h>
 #include <ncurses.h>
 #include <string>
 #include <cmath>

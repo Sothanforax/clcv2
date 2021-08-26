@@ -9,7 +9,8 @@
 #include <iostream>
 #include <getopt.h>
 #include <ncurses.h>
-#include <string>
+#include <csignal>
+#include <cstring>
 #include <cmath>
 #include <random>
 #include <regex>
@@ -26,10 +27,10 @@ void inttui(){
 	int row, col;
 	initscr();
 	noecho();
-	raw();
 	getmaxyx(stdscr, row, col);
-	wborder(stdscr,'|','|','-','-','*','*','*','*');
-	mvprintw(row - 2, 4, "ncurses tui not fully implemented currently, how ever you got here press any key to exit");
+	wborder(stdscr, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE, ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
+	mvprintw(row - 3, 2, "ncurses tui not fully implemented currently, how ever you got here press any key to exit");
+	mvprintw(row - 2, 2, "testy");
 	refresh();
 	getch();
 	endwin();

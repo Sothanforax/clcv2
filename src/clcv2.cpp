@@ -23,6 +23,16 @@ int chartoint(char in){
 }
 
 void inttui(){
+	int row, col;
+	initscr();
+	noecho();
+	raw();
+	getmaxyx(stdscr, row, col);
+	wborder(stdscr,'|','|','-','-','*','*','*','*');
+	mvprintw(row - 2, 4, "ncurses tui not fully implemented currently, how ever you got here press any key to exit");
+	refresh();
+	getch();
+	endwin();
 }
 
 void intsimple(){
@@ -69,7 +79,8 @@ void intsimple(){
 
 int main(int argc, char *argv[]){
 	int arguballs;
-	intsimple();
+	//intsimple();
+	inttui();
 
 
 	//for reference when writing the getopt(_long) help struct??	

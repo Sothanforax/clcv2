@@ -14,37 +14,53 @@
 #include <random>
 #include <regex>
 
+int chartoint(char in){
+		if(in == '*'){return 1;}
+		else if(in == '/'){return 2;}
+		else if(in == '+'){return 3;}
+		else if(in == '-'){return 4;}
+		else{return 0;}
+}
+
 void inttui(){
 }
 
 void intsimple(){
+	//COme On dO THE MARIO, SWING your ARms fROM side to side, COME ON NOW lets DO the MARIO, its easy now just PROGRAM LIKE A LOBOTOMITE, JUUUst Like THAT!
+	//Being serious for a second here though this was written with minimal sleep and will make my eyes bleed the next time I review my code, whenever that is.
 	bool cnt = true;
 	char cntyn;
 	char opr;
-	double prob[1];
-	double res = 0;
+	double prob[2] = {0,0};
+	double res = 0.0;
+	int i = 1;
 	while(cnt == true){
-		std::cout << "Simple Prompt v0.1, Escape character is ^C" << std::endl << "Available operators: * / + -" << std::endl;
-		std::cout << ">";
+		if(i < 2){
+			std::cout << "Simple Prompt v0.1, Escape character is ^C" << std::endl << "Available operators: * / + -" << std::endl;
+			i++;
+		}
+		std::cout << "#1>";
 		std::cin >> prob[0];
-		std::cout << "\n>";
-		std::cin >> opr;
-		std::cout << "\n>";
+		std::cout << "#2>";
 		std::cin >> prob[1];
-		switch(opr){
-			case '*': res = prob[0] * prob[1];
+		std::cout << "opr>";
+		std::cin >> opr;
+		int opr2 = chartoint(opr);
+		switch(opr2){
+			case 1: res = prob[0] * prob[1];
 				break;
-			case '/': res = prob[0] / prob[1];	
+			case 2: res = prob[0] / prob[1];	
 				break;
-			case '+': res = prob[0] + prob[1];	
+			case 3: res = prob[0] + prob[1];	
 				break;
-			case '-': res = prob[0] - prob[1];	
+			case 4: res = prob[0] - prob[1];	
 				break;
-			default: std::cout << "\nInvalid operator" << std::endl;
+			default: 
+				std::cerr << "\nInvalid operator" << std::endl;
 				break;
 		}
 		std::cout << "\nResult: " << res << std::endl;
-		std::cout << "Exit Prompt? y/n" << std::endl;
+		std::cout << "Exit Prompt? y to quit, any other character to enter another problem" << std::endl;
 		std::cout << ">";
 		std::cin >> cntyn;
 		if(cntyn == 'y'){cnt = false;}

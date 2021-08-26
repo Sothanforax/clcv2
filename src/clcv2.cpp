@@ -19,9 +19,10 @@ void inttui(){
 
 void intsimple(){
 	bool cnt = true;
+	char cntyn;
 	char opr;
 	double prob[1];
-	double res;
+	double res = 0;
 	while(cnt == true){
 		std::cout << "Simple Prompt v0.1, Escape character is ^C" << std::endl << "Available operators: * / + -" << std::endl;
 		std::cout << ">";
@@ -45,13 +46,14 @@ void intsimple(){
 		std::cout << "\nResult: " << res << std::endl;
 		std::cout << "Exit Prompt? y/n" << std::endl;
 		std::cout << ">";
-		std::cin >> prob[3];
-		if(prob[3] == 'n'){cnt = false;}
+		std::cin >> cntyn;
+		if(cntyn == 'y'){cnt = false;}
 	}
 }
 
 int main(int argc, char *argv[]){
 	int arguballs;
+	intsimple();
 
 
 	//for reference when writing the getopt(_long) help struct??	
@@ -67,6 +69,6 @@ int main(int argc, char *argv[]){
 	std::cout << "\nprogname version 0.1" << std::endl;
 	std::cout << "\nやらないか" << std::endl;
 	std::cout << "Invalid argument!\n progname -h or --help for more." <<std::endl;
-	*\std::cout << "No argument(s) specified" << std::endl;
+	std::cout << "No argument(s) specified" << std::endl;*/
 
 }

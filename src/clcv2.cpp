@@ -32,6 +32,7 @@ void inttui(){
 	wborder(stdscr, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE, ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
 	mvprintw(row - 3, 2, "ncurses tui not fully implemented currently, how ever you got here press any key to exit");
 	mvprintw(row - 2, 2, "columns %i rows %i", col, row);
+	mvprintw(row - 4, 2, "Hello there!");
 	refresh();
 	getch();
 	endwin();

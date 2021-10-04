@@ -81,8 +81,22 @@ void intsimple(){
 
 int main(int argc, char *argv[]){
 	int arguballs;
-	//intsimple();
-	inttui();
+	int ballindex;
+	static struct option long_options[] = {
+		{"interactive", no_argument, 0, 'i'},
+		{"simple", no_argument, 0, 's'},
+		{"help", no_argument, 0, OPT_LONG_HELP},
+		{"version", no_argument, 0, 'v'},
+		{NULL, 0, 0, 0}
+
+	};
+
+	while(1){
+		arguballs = getopt_long(argc, argv, "i:s:v");
+	}
+
+	switch(arguballs){
+	}
 
 
 	//for reference when writing the getopt(_long) help struct??	
@@ -96,8 +110,6 @@ int main(int argc, char *argv[]){
 	std::cout << "-h, --help			Display this help\n";
 	std::cout << "-v, --version			Display version\n" << std::endl;
 	std::cout << "\nprogname version 0.1" << std::endl;
-	std::cout << "\nやらないか" << std::endl;
 	std::cout << "Invalid argument!\n progname -h or --help for more." <<std::endl;
 	std::cout << "No argument(s) specified" << std::endl;*/
-
 }

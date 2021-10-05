@@ -82,22 +82,47 @@ void intsimple(){
 
 int main(int argc, char *argv[]){
 	int arguballs;
-	int ballindex;
+	int option_index = 0;
+
 	static struct option long_options[] = {
 		{"interactive", no_argument, 0, 'i'},
-		{"simple", no_argument, 0, 's'},
-		{"help", no_argument, 0, OPT_LONG_HELP},
+		{"interactive-simple", no_argument, 0, 's'},
+		{"help", no_argument, 0, 'h'},
+		{"usage", no_argument, 0, 'u'},
 		{"version", no_argument, 0, 'v'},
-		{NULL, 0, 0, 0}
+		{0, 0, 0, 0}
 
 	};
-
-	while(1){
-		arguballs = getopt_long(argc, argv, "i:s:v");
-	}
+		arguballs = getopt_long(argc, argv, "ishuv", long_options, &option_index);
 
 	switch(arguballs){
-	}
+		case 0:
+			std::cout << "test";
+			break;
+		case 'i':
+			inttui();
+			break;
+		case 's':
+			intsimple();
+			break;
+		case 'h':
+			std::cout << "ephemera [options]\n";
+			std::cout << "ephemera -e [expression]";
+			std::cout << "\n	Cruddy proof of concept calculator with multiple input methods\n";
+			std::cout << "\nOptions:\n";
+			std::cout << "-e --expression			Enter an expression straight into the terminal\n";
+			std::cout << "-i --interactive			Start an ncurses based interactive tui\n";
+			std::cout << "-s --interactive-simple			Start a simple interactive prompt\n";
+			std::cout << "-h --help				Display this help\n";
+			std::cout << "-v --version				Display version\n";
+			break;
+		case 'u':
+			std::cout << "Usage: ephemera [ishuv]\n";
+			break;
+		case 'v':
+			std::cout << "ephemera v0.2\n";
+			break;
+	}	
 
 
 	//for reference when writing the getopt(_long) help struct??	

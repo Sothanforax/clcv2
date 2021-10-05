@@ -85,6 +85,7 @@ int main(int argc, char *argv[]){
 	int option_index = 0;
 
 	static struct option long_options[] = {
+		{"expression", required_argument, 0, 'e'},
 		{"interactive", no_argument, 0, 'i'},
 		{"interactive-simple", no_argument, 0, 's'},
 		{"help", no_argument, 0, 'h'},

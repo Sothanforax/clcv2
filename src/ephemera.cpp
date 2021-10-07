@@ -13,16 +13,7 @@
 #include <csignal>
 #include <cstring>
 #include <cmath>
-#include <random>
 #include <regex>
-
-int chartoint(char in){
-		if(in == '*'){return 1;}
-		else if(in == '/'){return 2;}
-		else if(in == '+'){return 3;}
-		else if(in == '-'){return 4;}
-		else{return 0;}
-}
 
 void inttui(){
 	int row, col;
@@ -30,9 +21,7 @@ void inttui(){
 	noecho();
 	getmaxyx(stdscr, row, col);
 	wborder(stdscr, ACS_VLINE, ACS_VLINE, ACS_HLINE, ACS_HLINE, ACS_ULCORNER, ACS_URCORNER, ACS_LLCORNER, ACS_LRCORNER);
-	mvprintw(row - 3, 2, "ncurses tui not fully implemented currently, how ever you got here press any key to exit");
-	mvprintw(row - 2, 2, "columns %i rows %i", col, row);
-	mvprintw(row - 4, 2, "Hello there!");
+	mvprintw(row - 3, col - 10, "columns %i rows %i", col, row);
 	refresh();
 	getch();
 	endwin();
@@ -45,11 +34,11 @@ void intsimple(){
 	char cntyn;
 	char opr;
 	double prob[2] = {0,0};
-	double res = 0.0;
+	double res = 0;
 	int i = 1;
 	while(cnt == true){
 		if(i < 2){
-			std::cout << "Simple Prompt v0.1, Escape character is ^C" << std::endl << "Available operators: * / + -" << std::endl;
+			std::cout << "Simple Prompt v0.1, Escape character is ^C\n" << "Available operators: * / + -" << std::endl;
 			i++;
 		}
 		std::cout << "#1>";
@@ -58,15 +47,14 @@ void intsimple(){
 		std::cin >> prob[1];
 		std::cout << "opr>";
 		std::cin >> opr;
-		int opr2 = chartoint(opr);
-		switch(opr2){
-			case 1: res = prob[0] * prob[1];
+		switch(opr){
+			case '*': res = prob[0] * prob[1];
 				break;
-			case 2: res = prob[0] / prob[1];	
+			case '/': res = prob[0] / prob[1];	
 				break;
-			case 3: res = prob[0] + prob[1];	
+			case '+': res = prob[0] + prob[1];	
 				break;
-			case 4: res = prob[0] - prob[1];	
+			case '-': res = prob[0] - prob[1];	
 				break;
 			default: 
 				std::cerr << "\nInvalid operator" << std::endl;
@@ -78,6 +66,10 @@ void intsimple(){
 		std::cin >> cntyn;
 		if(cntyn == 'y'){cnt = false;}
 	}
+}
+
+void usage(){
+std::cout << "Usage: ephemera -[ishuv], --help for more" << std::endl;
 }
 
 int main(int argc, char *argv[]){
@@ -97,8 +89,8 @@ int main(int argc, char *argv[]){
 		arguballs = getopt_long(argc, argv, "e:ishuv", long_options, &option_index);
 
 	switch(arguballs){
-		case 0:
-			std::cout << "test";
+		case -1:
+			usage();
 			break;
 		case 'i':
 			inttui();
@@ -118,10 +110,10 @@ int main(int argc, char *argv[]){
 			std::cout << "-v --version				Display version\n";
 			break;
 		case 'u':
-			std::cout << "Usage: ephemera [ishuv]\n";
+			usage();
 			break;
 		case 'v':
-			std::cout << "ephemera v0.2\n";
+			std::cout << "ephemera v0.2.1\n";
 			break;
 	}	
 }

@@ -1,6 +1,5 @@
-Switch to getopt
 Ncurses tui
 Regex for argv input from command line
-Regex for the prompt and tui as well
+Regex for the tui as well
 Write a makefile and maybe a configure script (if need be)
 vector for expression(s)

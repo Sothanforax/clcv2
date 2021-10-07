@@ -94,7 +94,7 @@ int main(int argc, char *argv[]){
 		{0, 0, 0, 0}
 
 	};
-		arguballs = getopt_long(argc, argv, "ishuv", long_options, &option_index);
+		arguballs = getopt_long(argc, argv, "e:ishuv", long_options, &option_index);
 
 	switch(arguballs){
 		case 0:
